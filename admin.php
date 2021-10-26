@@ -51,9 +51,27 @@
 
   <div class="ui container">
 
-    <h2 class="ui header">Scoreboard</h2>
-    <?php include($_SERVER['DOCUMENT_ROOT'] . '/import/scoreboard.php') ?>
-    
+    <!-- <h1>Δαίδαλος Academy</h1> -->
+
+    <h2 class="ui header">Admin Panel</h2>
+    <br />
+
+
+    <div class="ui top attached tabular menu">
+      <a class="item active" data-tab="first">First</a>
+      <a class="item" data-tab="second">Second</a>
+      <a class="item" data-tab="third">Third</a>
+    </div>
+    <div class="ui bottom attached tab segment active" data-tab="first">
+      First
+    </div>
+    <div class="ui bottom attached tab segment" data-tab="second">
+      Second
+    </div>
+    <div class="ui bottom attached tab segment" data-tab="third">
+      Third
+    </div>
+
   </div>
 
   <?php include($_SERVER['DOCUMENT_ROOT'] . '/import/js.php') ?>
@@ -64,13 +82,8 @@
         $('.ui.menu .ui.dropdown').dropdown({
           on: 'hover'
         });
-        $('.ui.menu a.item')
-          .on('click', function() {
-            $(this)
-              .addClass('active')
-              .siblings()
-              .removeClass('active');
-          });
+        $('.menu .item')
+          .tab();
       });
   </script>
 
