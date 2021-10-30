@@ -11,6 +11,7 @@
 
   <!-- Site Properties -->
   <title>Δαίδαλος Academy</title>
+  <link rel="icon" type="image/png" href="/favicon.png"/>
 
   <?php include($_SERVER['DOCUMENT_ROOT'] . '/import/css.php') ?>
 

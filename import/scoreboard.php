@@ -1,7 +1,7 @@
 <?php
 
 // New Connection
-$db = new mysqli('remotemysql.com:3306', 'dl4hzzeU5a', 'tYCzePnf4t', 'dl4hzzeU5a');
+$db = new mysqli('localhost', 'php', '20e21o22A', 'academy');
 
 // Check connection
 if ($db->connect_errno) {
