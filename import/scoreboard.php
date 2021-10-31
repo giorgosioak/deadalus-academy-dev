@@ -14,39 +14,6 @@ $db->set_charset('utf8mb4');
 
 ?>
 
-<table class="ui striped left collapsing table">
-  <thead>
-    <tr>
-      <th>Points</th>
-      <th>Difficulty level</th>
-    </tr>
-  </thead>
-  <tbody>
-
-    <?php
-
-    // Perform query
-    if ($result = $db->query("SELECT * FROM difficulty")) {
-      // echo "Returned rows are: " . $result -> num_rows . "\n";
-      // Free result set
-      while ($row = $result->fetch_row()) {
-        printf("<tr>\n");
-        printf("<td>%s</td>\n", $row[0]);
-        printf("<td>%s</td>\n", $row[1]);
-        printf("</tr>\n");
-      }
-      $result->free_result();
-    }
-
-
-    $db->close();
-
-    ?>
-
-
-  </tbody>
-</table>
-
 <table class="ui striped right aligned table">
   <thead>
     <tr>
@@ -57,35 +24,26 @@ $db->set_charset('utf8mb4');
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td class="left aligned">Rosaline</td>
-      <td>5</td>
-      <td>35g</td>
-      <td>6g</td>
-    </tr>
-    <tr>
-      <td class="left aligned">Barrie</td>
-      <td>27</td>
-      <td>23g</td>
-      <td>28g</td>
-    </tr>
-    <tr>
-      <td class="left aligned">Trinidad</td>
-      <td>14</td>
-      <td>50g</td>
-      <td>7g</td>
-    </tr>
-    <tr>
-      <td class="left aligned">Jaqueline</td>
-      <td>31</td>
-      <td>30g</td>
-      <td>50g</td>
-    </tr>
-    <tr>
-      <td class="left aligned">Tamala</td>
-      <td>18</td>
-      <td>6g</td>
-      <td>13g</td>
-    </tr>
+      <?php
+
+    // Perform query
+    if ($result = $db->query("SELECT * FROM Player")) {
+      // echo "Returned rows are: " . $result -> num_rows . "\n";
+      // Free result set
+      while ($row = mysqli_fetch_assoc($result)) {
+        printf("<tr>\n");
+        printf("<td class=\"left aligned\">%s</td>\n", $row['discord']);
+        printf("<td>%s</td>\n", $row['points']);
+        printf("<td>%s</td>\n", $row['firstbloods']);
+        printf("<td>%s</td>\n", $row['challenges_solved']);
+        printf("</tr>\n");
+      }
+      $result->free_result();
+    }
+
+
+    $db->close();
+
+    ?>
   </tbody>
 </table>
