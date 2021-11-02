@@ -12,7 +12,7 @@
 
   <!-- Site Properties -->
   <title>Δαίδαλος Academy</title>
-  <link rel="icon" type="image/png" href="/favicon.png"/>
+  <link rel="icon" type="image/png" href="/favicon.png" />
 
   <?php include($_SERVER['DOCUMENT_ROOT'] . '/import/css.php') ?>
 
@@ -53,9 +53,48 @@
 
   <div class="ui container">
 
-    <h2 class="ui header">Scoreboard</h2>
-    <?php include($_SERVER['DOCUMENT_ROOT'] . '/import/scoreboard.php') ?>
-    
+    <h2 class="ui header">Εγγραφή νέου χρήστη</h2>
+
+    <div class="ui middle aligned grid">
+      <div class="column">
+        <form class="ui large form">
+          <div class="ui segment">
+            <div class="two fields">
+              <div class="required field">
+                <label>Όνομα χρήστη</label>
+                <input type="text" name="username" placeholder="Username">
+              </div>
+              <div class="required field">
+                <label>Ιδρυματικό email</label>
+                <input type="text" name="email" placeholder="user@csd.uoc.gr">
+              </div>
+            </div>
+            <div class="two fields">
+              <div class="required field">
+                <label>Κωδικός πρόσβασης</label>
+                <input type="password" name="password" placeholder="Password">
+              </div>
+              <div class="required field">
+                <label>Επανάληψη κωδικού</label>
+                <input type="password" name="password_rep" placeholder="Repeat Password">
+              </div>
+            </div>
+            <div class="ui message">
+              <div class="header">Λάβετε υπόψιν</div>
+              <ul class="list">
+                <li>Θα αποσταλεί στο email σας link για την ενεργοποιήση του λογαριασμού σας</li>
+              </ul>
+            </div>
+            <div class="ui right aligned basic segment">
+              <button class="ui primary button">Εγγραφή<i class="right chevron icon"></i></button>
+            </div>
+
+            <div class="ui error message"></div>
+
+        </form>
+      </div>
+    </div>
+
   </div>
 
   <?php include($_SERVER['DOCUMENT_ROOT'] . '/import/js.php') ?>

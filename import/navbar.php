@@ -15,7 +15,7 @@
       </div>
     </div>
 <?php } else { ?>
-    <button class="violet inverted ui button"> <i class="discord icon"></i> Login</button>
+    <button class="ui basic button">Σύνδεση</button> 
 <?php } ?>
   </div>
 </div>
