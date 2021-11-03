@@ -1,7 +1,7 @@
   <!-- Semantic UI -->
   <script src="/js/jquery-3.1.1.min.js"></script>
   <script src="/semantic/semantic.js"></script>
-  
+
   <!-- Components -->
   <!-- <script src="/semantic/components/accordion.js"></script>
   <script src="/semantic/components/api.js"></script>
@@ -27,3 +27,8 @@
   <script src="/semantic/components/video.js"></script>
   <script src="/semantic/components/visibility.js"></script>
   <script src="/semantic/components/visit.js"></script> -->
+
+  <script>
+    $('.ui.checkbox')
+      .checkbox();
+  </script>

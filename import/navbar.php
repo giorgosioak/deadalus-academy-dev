@@ -1,21 +1,68 @@
 <div class="ui secondary menu container">
   <div class="header item">Δαίδαλος Academy</div>
-  <a class="active item">Scoreboard</a>
+  <a class="item">Scoreboard</a>
   <a class="item">Challenges</a>
   <div class="right menu">
-<?php if((isset($_SESSION['username']))) { ?>
-    <div class="ui dropdown item">
-      geomint#4925
-      <i class="dropdown icon"></i>
-      <div class="menu">
-        <div class="item">Profile</div>
-        <div class="item">Settings</div>
-        <div class="divider"></div>
-        <div class="item">Log out</div>
+    <?php if ((isset($_SESSION['username']))) { ?>
+      <div class="ui dropdown item">
+        geomint#4925
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item">Profile</div>
+          <div class="item">Settings</div>
+          <div class="divider"></div>
+          <div class="item">Log out</div>
+        </div>
       </div>
-    </div>
-<?php } else { ?>
-    <button class="ui basic button">Σύνδεση</button> 
-<?php } ?>
+    <?php } else { ?>
+
+      <div class="ui dropdown item">
+        Σύνδεση
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="ui basic segment">
+            <form class="ui form">
+              <div class="field">
+                <input type="text" name="username" placeholder="Username">
+              </div>
+              <div class="field">
+                <input type="password" name="password" placeholder="Password">
+              </div>
+              <div class="ui checkbox">
+                <input type="checkbox" tabindex="0" class="hidden">
+                <label>Keep me logged in</label>
+              </div>
+              <div class="item">
+                <button class="ui primary button" type="submit">Σύνδεση<i class="right chevron icon"></i></button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="ui blue buttons">
+        <div class="ui button item">
+          Σύνδεση
+        <i class="dropdown icon"></i>
+          <div id="login-form" class="menu">
+            <div class="ui basic segment">
+              <form class="ui form">
+                <div class="field">
+                  <input type="text" name="username" placeholder="Username">
+                </div>
+                <div class="field">
+                  <input type="password" name="password" placeholder="Password">
+                </div>
+                <div class="item fluid">
+                  <button class="ui fluid button" type="submit">Submit</button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div> -->
+
+    <?php } ?>
   </div>
 </div>
