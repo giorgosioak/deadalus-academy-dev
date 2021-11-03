@@ -21,7 +21,7 @@
         <i class="dropdown icon"></i>
         <div class="menu">
           <div class="ui basic segment">
-            <form class="ui form">
+            <form class="ui form" action="/api/login.php" method="POST">
               <div class="field">
                 <input type="text" name="username" placeholder="Username">
               </div>
@@ -39,30 +39,6 @@
           </div>
         </div>
       </div>
-
-      <!-- <div class="ui blue buttons">
-        <div class="ui button item">
-          Σύνδεση
-        <i class="dropdown icon"></i>
-          <div id="login-form" class="menu">
-            <div class="ui basic segment">
-              <form class="ui form">
-                <div class="field">
-                  <input type="text" name="username" placeholder="Username">
-                </div>
-                <div class="field">
-                  <input type="password" name="password" placeholder="Password">
-                </div>
-                <div class="item fluid">
-                  <button class="ui fluid button" type="submit">Submit</button>
-                </div>
-              </form>
-            </div>
-          </div>
-
-        </div>
-      </div> -->
-
     <?php } ?>
   </div>
 </div>
