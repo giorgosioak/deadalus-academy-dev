@@ -57,7 +57,7 @@
 
     <div class="ui middle aligned grid">
       <div class="column">
-        <form class="ui large form" action="/api/register.php" method="POST">>
+        <form class="ui large form" action="/api/register.php" method="POST">
           <div class="ui segment">
             <div class="two fields">
               <div class="required field">
