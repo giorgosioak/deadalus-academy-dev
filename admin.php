@@ -1,3 +1,17 @@
+<?php
+    // if not logged in, redirect to home page
+    if (!isset($_SESSION["loggedin"])) {
+        header("location: /index.php");
+        exit;
+    }
+    // HEHE BOI
+    if ($_SESSION["user"] !== "giorgosioak") {
+        header("location: /index.php");
+        exit;
+    }
+
+?>
+
 <!DOCTYPE HTML>
 <html>
 

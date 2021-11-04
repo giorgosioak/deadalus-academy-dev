@@ -1,3 +1,11 @@
+<?php
+    // if not logged in, redirect to home page
+    if (!isset($_SESSION["loggedin"])) {
+        header("location: /index.php");
+        exit;
+    }
+?>
+
 <!DOCTYPE HTML>
 <html>
 
@@ -52,31 +60,49 @@
 
   <div class="ui container">
 
-	<?php # echo '<pre>'; var_dump($_SESSION); echo '</pre>'; ?>
-
     <h2 class="ui header">Settings</h2>
-	<div class="ui middle aligned grid">
-      <div class="column">
-        <form class="ui large form" action="/api/update_password.php" method="POST">
-          <div class="ui segment">
-            <div class="two fields">
-              <div class="required field">
-                <label>Τρέχων κωδικός πρόσβασης</label>
-                <input type="password" name="old_password" placeholder="Old password">
-              </div>
-              <div class="required field">
-                <label>Νέος κωδικός προσβασης</label>
-                <input type="password" name="new_password" placeholder="New password">
-              </div>
+	
+        <div class="row">
+            <div class="column">
+            <div class="ui grid">
+  <div class="four wide column">
+    <div class="ui vertical fluid tabular menu">
+      <a class="item">
+        Bio
+      </a>
+      <a class="item">
+        Pics
+      </a>
+      <a class="item active">
+        Companies
+      </a>
+      <a class="item">
+        Links
+      </a>
+    </div>
+  </div>
+    <div class="twelve wide stretched column">
+        <div class="ui basic segment">
+            <form class="ui large form" action="/api/update_password.php" method="POST">
+                <div class="ui segment">
+                    <div class="two fields">
+                        <div class="required field">
+                            <label>Τρέχων κωδικός πρόσβασης</label>
+                            <input type="password" name="old_password" placeholder="Old password">
+                        </div>
+                        <div class="required field">
+                            <label>Νέος κωδικός προσβασης</label>
+                            <input type="password" name="new_password" placeholder="New password">
+                        </div>
+                    </div>
+                    <div class="ui right aligned basic segment">
+                        <button class="ui primary button">Αλλαγή<i class="right chevron icon"></i></button>
+                    </div>
+                    <div class="ui error message"></div>
+                  </div>
+                </form>
             </div>
-            <div class="ui right aligned basic segment">
-              <button class="ui primary button">Αλλαγή<i class="right chevron icon"></i></button>
-            </div>
-
-            <div class="ui error message"></div>
-
-        </form>
-      </div>
+        </div>
     </div>
 
 
