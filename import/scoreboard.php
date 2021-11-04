@@ -27,12 +27,12 @@ $db->set_charset('utf8mb4');
       <?php
 
     // Perform query
-    if ($result = $db->query("SELECT * FROM Player")) {
+    if ($result = $db->query("SELECT * FROM Player ORDER BY points DESC, firstbloods DESC, challenges_solved DESC LIMIT 25")) {
       // echo "Returned rows are: " . $result -> num_rows . "\n";
       // Free result set
       while ($row = mysqli_fetch_assoc($result)) {
         printf("<tr>\n");
-        printf("<td class=\"left aligned\">%s</td>\n", $row['discord']);
+        printf("<td class=\"left aligned\">%s</td>\n", $row['username']);
         printf("<td>%s</td>\n", $row['points']);
         printf("<td>%s</td>\n", $row['firstbloods']);
         printf("<td>%s</td>\n", $row['challenges_solved']);
