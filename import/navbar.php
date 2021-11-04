@@ -3,9 +3,11 @@
   <a class="item">Scoreboard</a>
   <a class="item">Challenges</a>
   <div class="right menu">
-    <?php if ((isset($_SESSION['username']))) { ?>
+    <?php session_start(); echo '<pre>';
+var_dump($_SESSION);
+echo '</pre>'; if ((isset($_SESSION['loggedin']))) { ?>
       <div class="ui dropdown item">
-        geomint#4925
+        <?php printf($_SESSION['user']); ?>
         <i class="dropdown icon"></i>
         <div class="menu">
           <div class="item">Profile</div>
