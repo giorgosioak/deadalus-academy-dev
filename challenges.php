@@ -11,7 +11,7 @@
 
   <!-- Site Properties -->
   <title>Δαίδαλος Academy</title>
-  <link rel="icon" type="image/png" href="/favicon.png"/>
+  <link rel="icon" type="image/png" href="/favicon.png" />
 
   <?php include($_SERVER['DOCUMENT_ROOT'] . '/import/css.php') ?>
 
@@ -52,131 +52,132 @@
 
   <div class="ui container">
 
-	<?php # echo '<pre>'; var_dump($_SESSION); echo '</pre>'; ?>
+    <?php # echo '<pre>'; var_dump($_SESSION); echo '</pre>'; 
+    ?>
 
     <h2 class="ui header">Challenges</h2>
-  <div class="ui cards">
-    <div class="card">
-      <div class="content">
-        <i class="right floated star icon"></i>
-        <div class="header">Example challenge</div>
-        <div class="description">
-          <p>These challenges are static data to design ui</p>
+    <div class="ui cards">
+      <div class="card">
+        <div class="content">
+          <i class="right floated star icon"></i>
+          <div class="header">Example challenge #1</div>
+          <div class="description">
+            <p>These challenges are static data to design ui</p>
+          </div>
+        </div>
+        <div class="extra content">
+          <span class="left floated check">
+            <i class="check icon"></i>
+            Solved
+          </span>
+          <span class="right floated star">
+            <i class="star icon"></i>
+            very easy
+          </span>
         </div>
       </div>
-      <div class="extra content">
-        <span class="left floated like">
-          <i class="like icon"></i>
-          Like
-        </span>
-        <span class="right floated star">
-          <i class="star icon"></i>
-          Favorite
-        </span>
-      </div>
-    </div>
-    <div class="card">
-      <div class="content">
-        <i class="right floated like icon"></i>
-        <i class="right floated star icon"></i>
-        <div class="header">Cute Dog</div>
-        <div class="description">
-          <p></p>
+      <div class="card">
+        <div class="content">
+          <i class="right floated like icon"></i>
+          <i class="right floated star icon"></i>
+          <div class="header">Example challenge #2</div>
+          <div class="description">
+            <p></p>
+          </div>
+        </div>
+        <div class="extra content">
+          <span class="left floated check">
+            <i class="check icon"></i>
+            Solved
+          </span>
+          <span class="right floated star">
+            <i class="star icon"></i>
+            easy
+          </span>
         </div>
       </div>
-      <div class="extra content">
-        <span class="left floated like">
-          <i class="check icon"></i>
-          Solved
-        </span>
-        <span class="right floated star">
-          <i class="star icon"></i>
-          Favorite
-        </span>
-      </div>
-    </div>
-    <div class="card">
-      <div class="content">
-        <i class="right floated like icon"></i>
-        <i class="right floated star icon"></i>
-        <div class="header">Cute Dog</div>
-        <div class="description">
-          <p></p>
+      <div class="card">
+        <div class="content">
+          <i class="right floated like icon"></i>
+          <i class="right floated star icon"></i>
+          <div class="header">Example challenge #3</div>
+          <div class="description">
+            <p></p>
+          </div>
+        </div>
+        <div class="extra content">
+          <span class="left floated check">
+            <i class="check icon"></i>
+            Solved
+          </span>
+          <span class="right floated star">
+            <i class="star icon"></i>
+            medium
+          </span>
         </div>
       </div>
-      <div class="extra content">
-        <span class="left floated like">
-          <i class="like icon"></i>
-          Like
-        </span>
-        <span class="right floated star">
-          <i class="star icon"></i>
-          Favorite
-        </span>
-      </div>
-    </div>
-    <div class="card">
-      <div class="content">
-        <i class="right floated like icon"></i>
-        <i class="right floated star icon"></i>
-        <div class="header">Cute Dog</div>
-        <div class="description">
-          <p></p>
+      <div class="card">
+        <div class="content">
+          <i class="right floated like icon"></i>
+          <i class="right floated star icon"></i>
+          <div class="header">Example challenge #4</div>
+          <div class="description">
+            <p></p>
+          </div>
+        </div>
+        <div class="extra content">
+          <span class="left floated check">
+            <i class="check icon"></i>
+            Solved
+          </span>
+          <span class="right floated star">
+            <i class="star icon"></i>
+            a bit hard
+          </span>
         </div>
       </div>
-      <div class="extra content">
-        <span class="left floated like">
-          <i class="like icon"></i>
-          Like
-        </span>
-        <span class="right floated star">
-          <i class="star icon"></i>
-          Favorite
-        </span>
-      </div>
-    </div>
-    <div class="card">
-      <div class="content">
-        <i class="right floated like icon"></i>
-        <i class="right floated star icon"></i>
-        <div class="header">Cute Dog</div>
-        <div class="description">
-          <p></p>
+      <div class="card">
+        <div class="content">
+          <i class="right floated like icon"></i>
+          <i class="right floated star icon"></i>
+          <div class="header">Example challenge #5</div>
+          <div class="description">
+            <p></p>
+          </div>
+        </div>
+        <div class="extra content">
+          <span class="left floated check">
+            <i class="check icon"></i>
+            Solved
+          </span>
+          <span class="right floated star">
+            <i class="star icon"></i>
+            hard
+          </span>
         </div>
       </div>
-      <div class="extra content">
-        <span class="left floated like">
-          <i class="like icon"></i>
-          Like
-        </span>
-        <span class="right floated star">
-          <i class="star icon"></i>
-          Favorite
-        </span>
-      </div>
-    </div>
-    <div class="card">
-      <div class="content">
-        <i class="right floated like icon"></i>
-        <i class="right floated star icon"></i>
-        <div class="header">Cute Dog</div>
-        <div class="description">
-          <p></p>
+      <div class="card">
+        <div class="content">
+          <i class="right floated like icon"></i>
+          <i class="right floated star icon"></i>
+          <div class="header">Example challenge #6</div>
+          <div class="description">
+            <p></p>
+          </div>
+        </div>
+        <div class="extra content">
+          <span class="left floated check">
+            <i class="check icon"></i>
+            Solved
+          </span>
+          <span class="right floated star">
+            <i class="star icon"></i>
+            impossible
+          </span>
         </div>
       </div>
-      <div class="extra content">
-        <span class="left floated like">
-          <i class="like icon"></i>
-          Like
-        </span>
-        <span class="right floated star">
-          <i class="star icon"></i>
-          Favorite
-        </span>
-      </div>
     </div>
-  </div>
-    
+
   </div>
 
   <?php include($_SERVER['DOCUMENT_ROOT'] . '/import/js.php') ?>
