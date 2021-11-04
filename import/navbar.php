@@ -9,7 +9,7 @@
         <i class="dropdown icon"></i>
         <div class="menu">
           <div class="item">Profile</div>
-          <div class="item">Settings</div>
+          <a class="item" href="/settings.php">Settings</a>
           <div class="divider"></div>
           <a class="item" href="/api/logout.php">Log out</a>
         </div>
