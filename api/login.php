@@ -31,15 +31,15 @@
 
 	if (mysqli_num_rows($result) == 1) {
 
+		$row = mysqli_fetch_assoc($result);
+
 		// TODO: Use register with password_hash and verify later with password_verify
 		if($row['password'] != $_POST['password']){
 			exit("Incorrect password");
 		}
+		
 
 		$_SESSION['loggedin'] = time();
-
-		$row = mysqli_fetch_assoc($result);
-
 		$_SESSION['id'] = $row['id'];
 		$_SESSION['user'] = $row['username'];
 		$_SESSION['email'] = $row['email'];
