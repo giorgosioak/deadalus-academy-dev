@@ -3,7 +3,7 @@
   <a class="item">Scoreboard</a>
   <a class="item">Challenges</a>
   <div class="right menu">
-    <?php echo '<pre>'; var_dump($_SESSION); echo '</pre>'; if ((isset($_SESSION['loggedin']))) { ?>
+    <?php if ((isset($_SESSION['loggedin']))) { ?>
       <div class="ui dropdown item">
         <?php printf($_SESSION['user']); ?>
         <i class="dropdown icon"></i>
@@ -11,7 +11,7 @@
           <div class="item">Profile</div>
           <div class="item">Settings</div>
           <div class="divider"></div>
-          <div class="item">Log out</div>
+          <a class="item" href="/api/logout.php">Log out</a>
         </div>
       </div>
     <?php } else { ?>

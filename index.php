@@ -52,6 +52,8 @@
 
   <div class="ui container">
 
+	<?php # echo '<pre>'; var_dump($_SESSION); echo '</pre>'; ?>
+
     <h2 class="ui header">Scoreboard</h2>
     <?php include($_SERVER['DOCUMENT_ROOT'] . '/import/scoreboard.php') ?>
     

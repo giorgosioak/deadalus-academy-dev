@@ -1,4 +1,4 @@
-<?php if ($_SERVER['REQUEST_METHOD'] === 'POST') { 
+<?php
 
 
 	// Unset all of the session variables
@@ -11,8 +11,4 @@
 	header("location: /index.php");
 	exit;
 
-} else {
-
-echo "You won't find here what you looking at ;)";
-
-}
+?>

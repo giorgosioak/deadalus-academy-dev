@@ -26,7 +26,7 @@
 	$db->set_charset('utf8mb4');
 
 	// Perform query
-	$result = $db->query("SELECT * FROM `Player` WHERE `username`=$username AND `password`=$password;");
+	$result = $db->query("SELECT * FROM `Player` WHERE `username`='$username' AND `password`='$password';");
 
 	if (mysqli_num_rows($result) == 1){
 
@@ -42,12 +42,17 @@
 		$_SESSION['firstbloods'] = $row['firstbloods'];
 		$_SESSION['challenges_solved'] = $row['challenges_solved'];
 
-		$result->free_result();
-		$db->close();
+
+	} else {
+		
+		// printf("SELECT * FROM `Player` WHERE `username`='$username' AND `password`='$password';\n");
+		// printf(var_dump($result));
+		return new Response("Could not find user in db", 500, ['content-type' => 'text/plain']);
 
 	}
 
-
+	$result->free_result();
+	$db->close();
 	header("location: /index.php");
 	exit;
 
