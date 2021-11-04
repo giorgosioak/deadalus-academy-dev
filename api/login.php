@@ -1,34 +1,38 @@
-<?php if ($_SERVER['REQUEST_METHOD'] === 'POST') { 
+<?php if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 	// if already logged in, redirect to home page
-	if(isset($_SESSION["loggedin"])){
+	if (isset($_SESSION["loggedin"])) {
 		header("location: /index.php");
 		exit;
-
 	}
 
-
-	$username = $password = "";
-
-	$username = trim($_POST["username"]);
-	$password = trim($_POST["password"]);
+	//Check required data missing
+	if (!isset($_POST['username'], $_POST['password'])) {
+		// Could not get the data that should have been sent.
+		exit('Please fill both the username and password fields!');
+	}
 
 	// New Connection
 	$db = new mysqli('localhost', 'php', '20e21o22A', 'academy');
 
 	// Check connection
 	if ($db->connect_errno) {
-		echo "Failed to connect to MySQL: " . $db->connect_error;
-		exit();
+		exit("Failed to connect to database"); // $db->connect_error
 	}
 
 	// Charset
 	$db->set_charset('utf8mb4');
 
 	// Perform query
-	$result = $db->query("SELECT * FROM `Player` WHERE `username`='$username' AND `password`='$password';");
+	// $result = $db->query("SELECT * FROM `Player` WHERE `username`='$username' AND `password`='$password';");
+	$stmt = $$db->prepare('SELECT * FROM `Player` WHERE `username` = ? AND `password`= ? ;');
+	$stmt->bind_param('s', $_POST["username"]);
+	$stmt->bind_param('s', $_POST["password"]);
+	$stmt->execute(); $result = $stmt->get_result();
 
-	if (mysqli_num_rows($result) == 1){
+	if (mysqli_num_rows($result) == 1) {
+
+		// TODO: Use register with password_hash and verify later with password_verify instead of query
 
 		$_SESSION['loggedin'] = time();
 
@@ -41,25 +45,17 @@
 		$_SESSION['points'] = $row['points'];
 		$_SESSION['firstbloods'] = $row['firstbloods'];
 		$_SESSION['challenges_solved'] = $row['challenges_solved'];
-
-
 	} else {
-		
-		// printf("SELECT * FROM `Player` WHERE `username`='$username' AND `password`='$password';\n");
+
 		// printf(var_dump($result));
 		return new Response("Could not find user in db", 500, ['content-type' => 'text/plain']);
-
 	}
 
 	$result->free_result();
 	$db->close();
 	header("location: /index.php");
 	exit;
-
-
-
 } else {
 
 	echo "You won't find here what you looking at ;)";
-
 }
