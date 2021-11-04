@@ -3,9 +3,7 @@
   <a class="item">Scoreboard</a>
   <a class="item">Challenges</a>
   <div class="right menu">
-    <?php session_start(); echo '<pre>';
-var_dump($_SESSION);
-echo '</pre>'; if ((isset($_SESSION['loggedin']))) { ?>
+    <?php echo '<pre>'; var_dump($_SESSION); echo '</pre>'; if ((isset($_SESSION['loggedin']))) { ?>
       <div class="ui dropdown item">
         <?php printf($_SESSION['user']); ?>
         <i class="dropdown icon"></i>

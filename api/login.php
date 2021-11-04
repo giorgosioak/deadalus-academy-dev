@@ -1,7 +1,5 @@
 <?php if ($_SERVER['REQUEST_METHOD'] === 'POST') { 
 
-	session_start();
-
 	// if already logged in, redirect to home page
 	if(isset($_SESSION["loggedin"])){
 		header("location: /index.php");
