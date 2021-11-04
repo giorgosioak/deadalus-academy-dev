@@ -17,7 +17,7 @@ $db->set_charset('utf8mb4');
 <table class="ui striped right aligned table">
   <thead>
     <tr>
-      <th class="left aligned">discord username</th>
+      <th class="left aligned">username</th>
       <th>Points</th>
       <th>First Bloods</th>
       <th>Challenges Solved</th>
