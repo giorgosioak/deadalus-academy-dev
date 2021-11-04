@@ -1,9 +1,9 @@
 <?php
-    // if not logged in, redirect to home page
-    if (!isset($_SESSION["loggedin"])) {
-        header("location: /index.php");
-        exit;
-    }
+// if not logged in, redirect to home page
+if (!isset($_SESSION["loggedin"])) {
+  header("location: /index.php");
+  exit;
+}
 ?>
 
 <!DOCTYPE HTML>
@@ -19,7 +19,7 @@
 
   <!-- Site Properties -->
   <title>Δαίδαλος Academy</title>
-  <link rel="icon" type="image/png" href="/favicon.png"/>
+  <link rel="icon" type="image/png" href="/favicon.png" />
 
   <?php include($_SERVER['DOCUMENT_ROOT'] . '/import/css.php') ?>
 
@@ -61,70 +61,61 @@
   <div class="ui container">
 
     <h2 class="ui header">Settings</h2>
-	
-        <div class="row">
-            <div class="column">
-            <div class="ui grid">
-  <div class="four wide column">
-    <div class="ui vertical fluid tabular menu">
-      <a class="item">
-        Bio
-      </a>
-      <a class="item">
-        Pics
-      </a>
-      <a class="item active">
-        Companies
-      </a>
-      <a class="item">
-        Links
-      </a>
-    </div>
-  </div>
-    <div class="twelve wide stretched column">
-        <div class="ui basic segment">
-            <form class="ui large form" action="/api/update_password.php" method="POST">
-                <div class="ui segment">
-                    <div class="two fields">
-                        <div class="required field">
-                            <label>Τρέχων κωδικός πρόσβασης</label>
-                            <input type="password" name="old_password" placeholder="Old password">
-                        </div>
-                        <div class="required field">
-                            <label>Νέος κωδικός προσβασης</label>
-                            <input type="password" name="new_password" placeholder="New password">
-                        </div>
-                    </div>
-                    <div class="ui right aligned basic segment">
-                        <button class="ui primary button">Αλλαγή<i class="right chevron icon"></i></button>
-                    </div>
-                    <div class="ui error message"></div>
-                  </div>
-                </form>
+
+    <div class="row">
+      <div class="column">
+        <div class="ui grid">
+          <div class="four wide column">
+            <div class="ui vertical fluid tabular menu">
+              <a class="item active" data-tab="password-reset">
+                Επαναφορά κωδικού
+              </a>
             </div>
+          </div>
+          <div class="twelve wide stretched column">
+            <div class="ui basic segment" data-tab="password-reset">
+              <form class="ui large form" action="/api/update_password.php" method="POST">
+                <div class="ui segment">
+                  <div class="two fields">
+                    <div class="required field">
+                      <label>Τρέχων κωδικός πρόσβασης</label>
+                      <input type="password" name="old_password" placeholder="Old password">
+                    </div>
+                    <div class="required field">
+                      <label>Νέος κωδικός προσβασης</label>
+                      <input type="password" name="new_password" placeholder="New password">
+                    </div>
+                  </div>
+                  <div class="ui right aligned basic segment">
+                    <button class="ui primary button">Αλλαγή<i class="right chevron icon"></i></button>
+                  </div>
+                  <div class="ui error message"></div>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
-    </div>
 
 
-  </div>
+      </div>
 
-  <?php include($_SERVER['DOCUMENT_ROOT'] . '/import/js.php') ?>
+      <?php include($_SERVER['DOCUMENT_ROOT'] . '/import/js.php') ?>
 
-  <script>
-    $(document)
-      .ready(function() {
-        $('.ui.menu .ui.dropdown').dropdown({
-          on: 'hover'
-        });
-        $('.ui.menu a.item')
-          .on('click', function() {
-            $(this)
-              .addClass('active')
-              .siblings()
-              .removeClass('active');
+      <script>
+        $(document)
+          .ready(function() {
+            $('.ui.menu .ui.dropdown').dropdown({
+              on: 'hover'
+            });
+            $('.ui.menu a.item')
+              .on('click', function() {
+                $(this)
+                  .addClass('active')
+                  .siblings()
+                  .removeClass('active');
+              });
           });
-      });
-  </script>
+      </script>
 
 </body>
 
