@@ -34,7 +34,7 @@
 		$row = mysqli_fetch_assoc($result);
 
 		// TODO: Use register with password_hash and verify later with password_verify
-		if($row['password'] != $_POST['password']){
+		if(!password_verify($_POST['password'],$row['password'])){
 			exit("Incorrect password");
 		}
 		
