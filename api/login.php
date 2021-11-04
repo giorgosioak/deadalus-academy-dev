@@ -25,14 +25,16 @@
 
 	// Perform query
 	// $result = $db->query("SELECT * FROM `Player` WHERE `username`='$username' AND `password`='$password';");
-	$stmt = $$db->prepare('SELECT * FROM `Player` WHERE `username` = ? AND `password`= ? ;');
+	$stmt = $$db->prepare('SELECT * FROM `Player` WHERE `username` = ? ;');
 	$stmt->bind_param('s', $_POST["username"]);
-	$stmt->bind_param('s', $_POST["password"]);
 	$stmt->execute(); $result = $stmt->get_result();
 
 	if (mysqli_num_rows($result) == 1) {
 
-		// TODO: Use register with password_hash and verify later with password_verify instead of query
+		// TODO: Use register with password_hash and verify later with password_verify
+		if($row['password'] != $_POST['password']){
+			exit("Incorrect password");
+		}
 
 		$_SESSION['loggedin'] = time();
 
@@ -47,8 +49,7 @@
 		$_SESSION['challenges_solved'] = $row['challenges_solved'];
 	} else {
 
-		// printf(var_dump($result));
-		return new Response("Could not find user in db", 500, ['content-type' => 'text/plain']);
+		exit("User does not exist")
 	}
 
 	$result->free_result();
