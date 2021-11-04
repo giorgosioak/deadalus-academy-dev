@@ -25,7 +25,7 @@
 
 	// Perform query
 	// $result = $db->query("SELECT * FROM `Player` WHERE `username`='$username' AND `password`='$password';");
-	$stmt = $$db->prepare('SELECT * FROM `Player` WHERE `username` = ? ;');
+	$stmt = $db->prepare('SELECT * FROM `Player` WHERE `username` = ?');
 	$stmt->bind_param('s', $_POST["username"]);
 	$stmt->execute(); $result = $stmt->get_result();
 
@@ -49,7 +49,7 @@
 		$_SESSION['challenges_solved'] = $row['challenges_solved'];
 	} else {
 
-		exit("User does not exist")
+		exit("User does not exist");
 	}
 
 	$result->free_result();
