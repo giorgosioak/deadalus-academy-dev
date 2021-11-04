@@ -1,7 +1,7 @@
 <div class="ui secondary menu container">
   <div class="header item">Δαίδαλος Academy</div>
-  <a class="item">Scoreboard</a>
-  <a class="item">Challenges</a>
+  <a class="item" href="/index.php">Scoreboard</a>
+  <a class="item" href="/challenges.php">Challenges</a>
   <div class="right menu">
     <?php if ((isset($_SESSION['loggedin']))) { ?>
       <div class="ui dropdown item">
