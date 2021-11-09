@@ -5,7 +5,7 @@
         exit;
     }
     // HEHE BOI
-    if ($_SESSION["user"] !== "giorgosioak") {
+    if ($_SESSION["username"] !== "giorgosioak") {
         header("location: /index.php");
         exit;
     }

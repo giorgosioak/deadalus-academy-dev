@@ -68,7 +68,7 @@ if (!isset($_SESSION["loggedin"])) {
           <div class="four wide column">
             <div class="ui secondary vertical pointing menu">
               <a class="item active" data-tab="password-reset">
-                Επαναφορά κωδικού
+                Αλλαγή κωδικού
               </a>
             </div>
           </div>

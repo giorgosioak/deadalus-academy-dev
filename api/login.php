@@ -41,7 +41,8 @@
 
 		$_SESSION['loggedin'] = time();
 		$_SESSION['id'] = $row['id'];
-		$_SESSION['user'] = $row['username'];
+        $_SESSION['isAdmin'] = False;
+		$_SESSION['username'] = $row['username'];
 		$_SESSION['email'] = $row['email'];
 		$_SESSION['discord'] = $row['discord'];
 		$_SESSION['points'] = $row['points'];

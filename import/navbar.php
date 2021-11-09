@@ -5,40 +5,23 @@
   <div class="right menu">
     <?php if ((isset($_SESSION['loggedin']))) { ?>
       <div class="ui dropdown item">
-        <?php printf($_SESSION['user']); ?>
+        <?php printf($_SESSION['username']); ?>
         <i class="dropdown icon"></i>
         <div class="menu">
           <div class="item">Profile</div>
           <a class="item" href="/settings.php">Settings</a>
+            <?php if ($_SESSION["username"] == "giorgosioak" ) { ?> 
+          <a class="item" href="/admin.php">Admin Panel</a>
+            <?php } ?>
           <div class="divider"></div>
           <a class="item" href="/api/logout.php">Log out</a>
         </div>
       </div>
     <?php } else { ?>
+        
+        <a class="item" href="/login.php">Σύνδεση</a>
+        <a class="item" href="/register.php">Εγγραφή</a>
 
-      <div class="ui dropdown item">
-        Σύνδεση
-        <i class="dropdown icon"></i>
-        <div class="menu">
-          <div class="ui basic segment">
-            <form class="ui form" action="/api/login.php" method="POST">
-              <div class="field">
-                <input type="text" name="username" placeholder="Username">
-              </div>
-              <div class="field">
-                <input type="password" name="password" placeholder="Password">
-              </div>
-              <div class="ui checkbox">
-                <input type="checkbox" tabindex="0" class="hidden">
-                <label>Keep me logged in</label>
-              </div>
-              <div class="item">
-                <button class="ui primary button" type="submit">Σύνδεση<i class="right chevron icon"></i></button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
     <?php } ?>
   </div>
 </div>

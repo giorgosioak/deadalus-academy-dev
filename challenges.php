@@ -56,7 +56,7 @@
     ?>
 
     <h2 class="ui header">Challenges</h2>
-    <div class="ui cards">
+    <div class="ui centered cards">
       <div class="card">
         <div class="content">
           <i class="right floated star icon"></i>
