@@ -10,7 +10,7 @@
         <div class="menu">
           <div class="item">Profile</div>
           <a class="item" href="/settings.php">Settings</a>
-            <?php if ($_SESSION["username"] == "giorgosioak" ) { ?> 
+            <?php if ($_SESSION["isAdmin"] == True ) { ?> 
           <a class="item" href="/admin.php">Admin Panel</a>
             <?php } ?>
           <div class="divider"></div>

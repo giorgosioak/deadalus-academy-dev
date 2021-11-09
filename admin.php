@@ -5,7 +5,7 @@
         exit;
     }
     // HEHE BOI
-    if ($_SESSION["username"] !== "giorgosioak") {
+    if ($_SESSION["isAdmin"] == False) {
         header("location: /index.php");
         exit;
     }
@@ -72,12 +72,12 @@
 
 
     <div class="ui top attached tabular menu">
-      <a class="item active" data-tab="first">First</a>
+      <a class="item active" data-tab="first">SESSION</a>
       <a class="item" data-tab="second">Second</a>
       <a class="item" data-tab="third">Third</a>
     </div>
     <div class="ui bottom attached tab segment active" data-tab="first">
-      First
+      <?php echo '<pre>'; var_export($_SESSION); echo '</pre>'; ?>
     </div>
     <div class="ui bottom attached tab segment" data-tab="second">
       Second

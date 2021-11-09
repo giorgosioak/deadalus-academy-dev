@@ -41,7 +41,7 @@
 
 		$_SESSION['loggedin'] = time();
 		$_SESSION['id'] = $row['id'];
-        $_SESSION['isAdmin'] = False;
+        // $_SESSION['isAdmin'] = False;
 		$_SESSION['username'] = $row['username'];
 		$_SESSION['email'] = $row['email'];
 		$_SESSION['discord'] = $row['discord'];
@@ -53,7 +53,15 @@
 		exit("User does not exist");
 	}
 
+    $stmt = $db->prepare('SELECT count(*) as isAdmin FROM `admin` WHERE `id` = ?');
+    $stmt->bind_param('s', $row['id']);
+    $stmt->execute(); $admin_result = $stmt->get_result();
+
+    $row = mysqli_fetch_assoc($admin_result);
+    $_SESSION['isAdmin'] = ($row['isAdmin'] > 0) ? True : False;
+
 	$result->free_result();
+	$admin_result->free_result();
 	$db->close();
 	header("location: /index.php");
 	exit;
