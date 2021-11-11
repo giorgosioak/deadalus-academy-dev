@@ -1,3 +1,10 @@
+<?php
+    // if already logged in, redirect to home page
+    if (isset($_SESSION["loggedin"])) {
+        header("location: /index.php");
+        exit;
+    }
+?>
 <!DOCTYPE HTML>
 <html>
 
@@ -56,7 +63,7 @@
 
     <div class="ui middle aligned centered grid">
       <div class="eight wide column">
-        <form class="ui form" action="/api/login.php" method="POST">
+        <form class="ui form">
           <div class="ui segment">
               <div class="required field">
                 <label>Όνομα χρήστη</label>
@@ -67,7 +74,7 @@
                 <input type="password" name="password" placeholder="Password">
               </div>
               <div class="right floated field">
-                  <button class="ui right labeled icon primary button">Σύνδεση<i class="right chevron icon"></i></button>
+                  <button id="login-button" class="ui right labeled icon primary button" type="button">Σύνδεση<i class="right chevron icon"></i></button>
               </div>
             </div>
 
@@ -95,6 +102,25 @@
               .removeClass('active');
           });
       });
+      $('#login-button')
+          .on('click', function() {
+              $.ajax({
+                url : '/api/login.php',
+                type : 'POST',
+                data : {
+                    'username': $('input[name=username]').val(),
+                    'password': $('input[name=password]').val()
+                },
+                dataType:'json',
+                success : function(data) {
+                    window.location.href = 'index.php';
+                },
+                error : function(request,error) {
+                    console.log(JSON.stringify(request));
+                }
+            });
+        });
+
   </script>
 
 </body>

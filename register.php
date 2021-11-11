@@ -1,3 +1,10 @@
+<?php
+    // if already logged in, redirect to home page
+    if (isset($_SESSION["loggedin"])) {
+        header("location: /index.php");
+        exit;
+    }
+?>
 <!DOCTYPE HTML>
 <html>
 
@@ -56,7 +63,7 @@
 
     <div class="ui middle aligned grid">
       <div class="column">
-        <form id="register-form" class="ui large form" action="/api/register.php" method="POST">
+        <form id="register-form" class="ui large form">
           <div class="ui segment">
             <div class="two fields">
               <div class="required field">
@@ -90,7 +97,7 @@
               </ul>
             </div>
             <div class="ui right aligned basic segment">
-              <button class="ui right labeled icon primary button">Εγγραφή<i class="right chevron icon"></i></button>
+              <button id="register-button" class="ui right labeled icon primary button" type="button">Εγγραφή<i class="right chevron icon"></i></button>
             </div>
           </div>
         </form>
@@ -114,11 +121,6 @@
               .siblings()
               .removeClass('active');
           });
-        $.validator.setDefaults({
-			submitHandler: function () {
-				alert( "submitted!" );
-			}
-		});
         $("#register-form").validate({
             errorElement: "li",
             rules: {
@@ -169,7 +171,26 @@
 				}
             });
         });
-  </script>
+        $('#register-button')
+          .on('click', function() {
+            $.ajax({
+                url : '/api/register.php',
+                type : 'POST',
+                data : {
+                    'username' : $('input[name=username]').val(),
+                    'password': $('input[name=password]').val(),
+                    'email': $('input[name=email]').val()
+                },
+                dataType:'json',
+                success : function(data) {              
+                    window.location.href = 'index.php';
+                },
+                error : function(request,error) {
+                    console.log(JSON.stringify(request));
+                }
+            });
+        });
+    </script>
 
 </body>
 
