@@ -3,17 +3,27 @@
     // if already logged in, redirect to home page
     if (isset($_SESSION['loggedin'])) {
         http_response_code(401);
-        exit('{"status":"success","message":"Already logged in"}');
+        exit('{"status":"failure","message":"Already logged in"}');
     }
 
     //Check required data missing
     if (!isset($_POST['username'], $_POST['email'], $_POST['password'])) {
         // Could not get the data that should have been sent.
         http_response_code(401);
-        exit('{"status":"success","message":"Please fill all fields!"}');
+        exit('{"status":"failure","message":"Please fill all fields"}');
     }
 
-    // TODO: CHECK EMPTY!
+    if (empty($_POST['username']) || empty($_POST['email']) || empty($_POST['password'])) {
+        // Could not get the data that should have been sent.
+        http_response_code(401);
+        exit('{"status":"failure","message":"Empty form fields"}');
+    }
+
+    if ( substr($_POST['email'], strpos($_POST['email'], "@") + 1) != "csd.uoc.gr" ){
+        // Not a @csd.uoc.gr email
+        http_response_code(401);
+        exit('{"status":"failure","message":"Only emails from csd uoc are allowed"}');
+    }
 
      // New Connection
     $db = new mysqli('localhost', 'php', '20e21o22A', 'academy');
@@ -21,7 +31,7 @@
     // Check connection
     if ($db->connect_errno) {
         http_response_code(502);
-        exit('{"status":"success","message":"Failed to connect to database"}'); // $db->connect_error
+        exit('{"status":"failure","message":"Failed to connect to database"}'); // $db->connect_error
     }
 
     // Charset
@@ -34,7 +44,7 @@
 
     if (mysqli_num_rows($result) > 0) {
         http_response_code(401);
-        exit('{"status":"success","message":"username or email is already used"}'); // TODO: Better checking
+        exit('{"status":"failure","message":"username or email is already used"}'); // TODO: Better checking
     }
 
     $pass = password_hash($_POST['password'], PASSWORD_DEFAULT);
@@ -47,7 +57,7 @@
     $nrows = $stmt->affected_rows;
     if (!$nrows) {
         http_response_code(502);
-        exit('{"status":"success","message":"Could not insert user to database"}');
+        exit('{"status":"failure","message":"Could not insert user to database"}');
     }
 
     $result->free_result();

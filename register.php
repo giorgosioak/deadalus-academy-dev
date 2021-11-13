@@ -173,6 +173,9 @@
         });
         $('#register-button')
           .on('click', function() {
+            if ( !$("#register-form").valid() ){
+                return;
+            }
             $.ajax({
                 url : '/api/register.php',
                 type : 'POST',
