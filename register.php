@@ -68,11 +68,11 @@
             <div class="two fields">
               <div class="required field">
                 <label>Όνομα χρήστη</label>
-                <input id="username" type="text" name="username" placeholder="Username">
+                <input id="username" type="text" name="username" maxlength="32" placeholder="Username">
               </div>
               <div class="required field">
                 <label>Ιδρυματικό email</label>
-                <input id="email" type="text" name="email" placeholder="user@csd.uoc.gr">
+                <input id="email" type="text" name="email" maxlength="28" placeholder="user@csd.uoc.gr">
               </div>
             </div>
             <div class="two fields">
@@ -126,7 +126,8 @@
             rules: {
                 username: {
                     required: true,
-                    minlength: 2
+                    minlength: 2,
+                    maxlength: 32
                 },
                 email: {
                     required: true,
@@ -145,7 +146,8 @@
             messages: {
 					username: {
 						required: "Please enter a username",
-						minlength: "Your username must consist of at least 2 characters"
+						minlength: "Your username must consist of at least 2 characters",
+                        maxlength: "Your username must consist of at most 32 characters"
 					},
 					password: {
 						required: "Please provide a password",

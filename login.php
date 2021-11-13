@@ -67,7 +67,7 @@
           <div class="ui segment">
               <div class="required field">
                 <label>Όνομα χρήστη</label>
-                <input type="text" name="username" placeholder="Username">
+                <input type="text" name="username" maxlength="32" placeholder="Username">
               </div>
               <div class="required field">
                 <label>Κωδικός πρόσβασης</label>
