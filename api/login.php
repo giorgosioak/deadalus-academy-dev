@@ -13,6 +13,18 @@
 		exit('{"status":"success","message":"Please fill both the username and password fields!"}');
 	}
 
+    if (empty($_POST['username']) || empty($_POST['password'])) {
+        // Could not get the data that should have been sent.
+        http_response_code(401);
+        exit('{"status":"failure","message":"Empty form fields"}');
+    }
+
+
+    if (strlen($_POST['username']) < 2 || strlen($_POST['username']) > 32 || strlen($_POST['password']) < 5) {
+        http_response_code(401);
+        exit('{"status":"failure","message":"Invalid input size"}');
+    }
+
 	// New Connection
 	$db = new mysqli('localhost', 'php', '20e21o22A', 'academy');
 

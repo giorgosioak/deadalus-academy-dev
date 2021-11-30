@@ -19,6 +19,21 @@
         exit('{"status":"failure","message":"Empty form fields"}');
     }
 
+    if (strlen($_POST['username']) < 2 || strlen($_POST['username']) > 32) {
+        http_response_code(401);
+        exit('{"status":"failure","message":"Username can be min 2 characters and max 32 characters"}');
+    }
+
+    if (strlen($_POST['email']) > 28) {
+        http_response_code(401);
+        exit('{"status":"failure","message":"Email can be max 28 characters"}');
+    }
+
+    if (strlen($_POST['password']) < 5) {
+        http_response_code(401);
+        exit('{"status":"failure","message":"Password has to be at least 5 characters"}');
+    }
+
     if ( substr($_POST['email'], strpos($_POST['email'], "@") + 1) != "csd.uoc.gr" ){
         // Not a @csd.uoc.gr email
         http_response_code(401);

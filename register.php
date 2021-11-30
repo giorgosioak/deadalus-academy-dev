@@ -131,7 +131,8 @@
                 },
                 email: {
                     required: true,
-                    email: true
+                    email: true,
+                    maxlength: 28
                 },
                 password: {
                     required: true,
