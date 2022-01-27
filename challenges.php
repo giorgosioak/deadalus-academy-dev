@@ -56,127 +56,36 @@
     ?>
 
     <h2 class="ui header">Challenges</h2>
-    <div class="ui centered cards">
-      <div class="card">
-        <div class="content">
-          <i class="right floated star icon"></i>
-          <div class="header">Example challenge #1</div>
-          <div class="description">
-            <p>These challenges are static data to design ui</p>
+    <div class="ui secondary  menu">
+      <a class="item">
+        Hide Solved
+      </a>
+      <a class="item">
+        Categories selector?
+      </a>
+      <a class="item">
+        ...
+      </a>
+      <div class="right menu">
+        <div class="item">
+          <div class="ui icon input">
+            <input type="text" placeholder="Search...">
+            <i class="search link icon"></i>
           </div>
         </div>
-        <div class="extra content">
-          <span class="left floated check">
-            <i class="check icon"></i>
-            Solved
-          </span>
-          <span class="right floated star">
-            <i class="star icon"></i>
-            very easy
-          </span>
-        </div>
-      </div>
-      <div class="card">
-        <div class="content">
-          <i class="right floated like icon"></i>
-          <i class="right floated star icon"></i>
-          <div class="header">Example challenge #2</div>
-          <div class="description">
-            <p></p>
-          </div>
-        </div>
-        <div class="extra content">
-          <span class="left floated check">
-            <i class="check icon"></i>
-            Solved
-          </span>
-          <span class="right floated star">
-            <i class="star icon"></i>
-            easy
-          </span>
-        </div>
-      </div>
-      <div class="card">
-        <div class="content">
-          <i class="right floated like icon"></i>
-          <i class="right floated star icon"></i>
-          <div class="header">Example challenge #3</div>
-          <div class="description">
-            <p></p>
-          </div>
-        </div>
-        <div class="extra content">
-          <span class="left floated check">
-            <i class="check icon"></i>
-            Solved
-          </span>
-          <span class="right floated star">
-            <i class="star icon"></i>
-            medium
-          </span>
-        </div>
-      </div>
-      <div class="card">
-        <div class="content">
-          <i class="right floated like icon"></i>
-          <i class="right floated star icon"></i>
-          <div class="header">Example challenge #4</div>
-          <div class="description">
-            <p></p>
-          </div>
-        </div>
-        <div class="extra content">
-          <span class="left floated check">
-            <i class="check icon"></i>
-            Solved
-          </span>
-          <span class="right floated star">
-            <i class="star icon"></i>
-            a bit hard
-          </span>
-        </div>
-      </div>
-      <div class="card">
-        <div class="content">
-          <i class="right floated like icon"></i>
-          <i class="right floated star icon"></i>
-          <div class="header">Example challenge #5</div>
-          <div class="description">
-            <p></p>
-          </div>
-        </div>
-        <div class="extra content">
-          <span class="left floated check">
-            <i class="check icon"></i>
-            Solved
-          </span>
-          <span class="right floated star">
-            <i class="star icon"></i>
-            hard
-          </span>
-        </div>
-      </div>
-      <div class="card">
-        <div class="content">
-          <i class="right floated like icon"></i>
-          <i class="right floated star icon"></i>
-          <div class="header">Example challenge #6</div>
-          <div class="description">
-            <p></p>
-          </div>
-        </div>
-        <div class="extra content">
-          <span class="left floated check">
-            <i class="check icon"></i>
-            Solved
-          </span>
-          <span class="right floated star">
-            <i class="star icon"></i>
-            impossible
-          </span>
-        </div>
+        <?php if ($_SESSION["isAdmin"] == True) { ?>
+          <button id="new-challenge-button" class="ui small labeled icon button">
+            <i class="icon plus"></i> New Challenge
+          </button>
+        <?php } ?>
       </div>
     </div>
+
+
+    <?php include($_SERVER['DOCUMENT_ROOT'] . '/import/new_challenge_modal.php') ?>
+
+    <?php include($_SERVER['DOCUMENT_ROOT'] . '/import/challenges.php') ?>
+
 
   </div>
 
@@ -196,8 +105,37 @@
               .removeClass('active');
           });
       });
+      <?php if ($_SESSION["isAdmin"] == True) { ?>
+        $('#new-challenge-button')
+          .on('click', function() {
+          $('.ui.longer.modal')
+            .modal('show');
+        });
+        $('.ui.longer.modal')
+          .modal({
+            closable  : true,
+            onApprove : function() {
+              $.ajax({
+                url : '/api/new_challenge.php',
+                type : 'POST',
+                data : {
+                    'title': $('input[name=title]').val(),
+                    'description': $('textarea[name=description]').val(),
+                    'difficulty': $('#difficulty option:selected').val()
+                },
+                dataType:'json',
+                success : function(data) {
+                    window.location.href = 'challenges.php';
+                },
+                error : function(request,error) {
+                    console.log(JSON.stringify(request));
+                }
+            });
+          }
+        });
+      <?php } ?>
   </script>
 
-</body>
 
+</body>
 </html>

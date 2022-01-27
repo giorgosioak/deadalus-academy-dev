@@ -25,6 +25,7 @@
 
   <!-- Site Properties -->
   <title>Δαίδαλος Academy</title>
+  <link rel="icon" type="image/png" href="/favicon.png" />
 
   <?php include($_SERVER['DOCUMENT_ROOT'] . '/import/css.php') ?>
 
@@ -70,76 +71,35 @@
     <h2 class="ui header">Admin Panel</h2>
     <br />
 
+    <div class="row">
+      <div class="column">
+        <div class="ui grid">
+          <div class="four wide column">
+            <div class="ui secondary vertical pointing menu">
+              <a class="item active" data-tab="session">SESSION</a>
+              <a class="item" data-tab="new-challenge">Challenges</a>
+              <a class="item" data-tab="admins">Admins</a>
+            </div>
+          </div>
+          <div class="twelve wide stretched column">
+            <div class="ui basic segment tab active" data-tab="session">
+              <h2>PHPSESSION:</h2>
+              <?php echo '<pre>'; var_export($_SESSION); echo '</pre>'; ?>
+            </div>
+            <div class="ui basic segment tab" data-tab="new-challenge">
+              <p>Moved to <a href="/challenges.php">challenges.php</a></p>
+            </div>
+            <div class="ui basic segment tab" data-tab="admins">
+              <p>Wow you are an admin! Congrats 🥳</p>
 
-    <div class="ui top attached tabular menu">
-      <a class="item active" data-tab="first">SESSION</a>
-      <a class="item" data-tab="second">Challenges</a>
-      <a class="item" data-tab="third">Third</a>
-    </div>
-    <div class="ui bottom attached tab segment active" data-tab="first">
-      <?php echo '<pre>'; var_export($_SESSION); echo '</pre>'; ?>
-    </div>
-    <div class="ui bottom attached tab segment" data-tab="second">
-
-        <div class="ui middle aligned grid">
-          <div class="column">
-            <form id="new-challenge-form" class="ui large form">
-              <div class="ui segment">
-                  <div class="required field">
-                    <label>Τίτλος</label>
-                    <input id="title" type="text" name="title" maxlength="120" placeholder="Τίτλος challenge">
-                  </div>
-                  <div class="required field">
-                    <label>Περιγραφή</label>
-                    <textarea maxlength="450"></textarea>
-                  </div>
-                    <div class="field">
-                        <label>Δυσκολία</label>
-                        <select>
-                          <option value="1">very easy</option>
-                          <option value="2">easy</option>
-                          <option value="3">medium</option>
-                          <option value="4">a bit hard</option>
-                          <option value="5">hard</option>
-                          <option value="6">impossible</option>
-
-                        </select>
-                      </div>
-                <div class="two fields">
-                  <div class="required field">
-                    <label>Κωδικός πρόσβασης</label>
-                    <input id="password" type="password" name="password" placeholder="Password">
-                  </div>
-                  <div class="required field">
-                    <label>Επανάληψη κωδικού</label>
-                    <input id="confirm_password" type="password" name="confirm_password" placeholder="Repeat Password">
-                  </div>
-                </div>
-                <div id="errors" class="ui error message">
-                  <div class="header">Προσοχή!</div>
-                  <ul id="error-list" class="list">
-                  </ul>
-                </div>
-                <div id="info" class="ui message">
-                  <div class="header">Λάβετε υπόψιν</div>
-                  <ul class="list">
-                    <li>Θα αποσταλεί στο email σας link για την ενεργοποιήση του λογαριασμού σας</li>
-                  </ul>
-                </div>
-                <div class="ui right aligned basic segment">
-                  <button id="new-challenge-button" class="ui right labeled icon primary button" type="button">Εγγραφή<i class="right chevron icon"></i></button>
-                </div>
-              </div>
-            </form>
+              <?php include($_SERVER['DOCUMENT_ROOT'] . '/import/admins.php') ?>
+            </div>
           </div>
         </div>
-
+      </div>
     </div>
-    <div class="ui bottom attached tab segment" data-tab="third">
-      Third
-    </div>
-
   </div>
+
 
   <?php include($_SERVER['DOCUMENT_ROOT'] . '/import/js.php') ?>
 
